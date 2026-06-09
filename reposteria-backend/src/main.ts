@@ -9,7 +9,7 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'https://reposteria-app-0c4a.onrender.com' // producción (CAMBIA ESTO)
+      'https://reposteria-app-up0k.onrender.com' // producción (CAMBIA ESTO)
     ],
     credentials: true,
   });
