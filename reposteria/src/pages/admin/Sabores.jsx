@@ -85,7 +85,10 @@ function Sabores() {
           placeholder="Nuevo sabor"
           onChange={(e) => setNuevo(e.target.value)}
         />
-        <button onClick={agregarSabor}>
+        <button onClick={(e) => {
+          console.log("click directo", e);
+          agregarSabor();
+        }}>
           + Agregar
         </button>
       </div>
