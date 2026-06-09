@@ -1,0 +1,231 @@
+.delete-product-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 120px 7%;
+
+  background: #fdfafe;
+}
+
+.delete-product-card {
+  width: 100%;
+
+  max-width: 950px;
+
+  background: white;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.08);
+}
+
+.delete-product-content {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+}
+
+.delete-product-image img {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.delete-product-info {
+  padding: 60px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.delete-product-info h2 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 54px;
+
+  line-height: 1;
+
+  margin-bottom: 24px;
+
+  color: #07091f;
+}
+
+.delete-product-info p {
+  color: #666;
+
+  line-height: 1.8;
+
+  margin-bottom: 32px;
+}
+
+.delete-product-info button {
+  border: none;
+
+  padding: 18px 28px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    #ff3d8b,
+    #c1123f
+  );
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  width: fit-content;
+}
+
+.delete-product-info button:hover {
+  transform: translateY(-3px);
+}
+
+/* ───────── MODAL ───────── */
+
+.delete-modal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  background: rgba(0,0,0,0.45);
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.delete-modal {
+  width: 100%;
+
+  max-width: 420px;
+
+  background: white;
+
+  border-radius: 28px;
+
+  padding: 36px;
+
+  text-align: center;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.18);
+
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.delete-modal h3 {
+  font-family: "Cormorant Garamond", serif;
+
+  font-size: 38px;
+
+  margin-bottom: 16px;
+
+  color: #07091f;
+}
+
+.delete-modal p {
+  color: #666;
+
+  line-height: 1.7;
+
+  margin-bottom: 28px;
+}
+
+.delete-modal-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 14px;
+}
+
+.cancel-btn,
+.confirm-btn {
+  border: none;
+
+  padding: 14px 22px;
+
+  border-radius: 14px;
+
+  cursor: pointer;
+
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+.cancel-btn {
+  background: #f2f2f2;
+}
+
+.confirm-btn {
+  background: linear-gradient(
+    135deg,
+    #ff3d8b,
+    #c1123f
+  );
+
+  color: white;
+}
+
+.cancel-btn:hover,
+.confirm-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ───────── RESPONSIVE ───────── */
+
+@media (max-width: 768px) {
+
+  .delete-product-content {
+    grid-template-columns: 1fr;
+  }
+
+  .delete-product-info {
+    padding: 40px 28px;
+  }
+
+  .delete-product-info h2 {
+    font-size: 40px;
+  }
+}

@@ -1,0 +1,368 @@
+.edit-carousel-container {
+  padding: 40px;
+  background: #f7f7f7;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.form input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.form button {
+  padding: 10px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* LISTA EN FILA */
+.slides-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;   /* 🔥 importante para que bajen en pantalla pequeña */
+}
+
+/* CARD */
+.slide-card {
+  width: 200px;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.slide-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.info {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* BOTÓN */
+.delete-btn {
+  margin-top: 10px;
+  width: 100%;
+  background: red;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+/* ── HEADER ── */
+.edit-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.edit-header h2 { margin: 0; flex: 1; }
+.slide-count {
+  font-size: 13px;
+  color: #888;
+  background: #eee;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.back-btn {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ── FORM CARD ── */
+.form-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  max-width: 600px;
+  width: 100%;
+}
+.form-title { margin: 0 0 16px; font-size: 16px; }
+
+/* ── DROP ZONE ── */
+.drop-zone {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+}
+.drop-zone:hover { border-color: #111; }
+.drop-zone.has-preview { border-style: solid; border-color: #111; }
+.drop-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  text-align: center;
+}
+.drop-placeholder p { margin: 0; font-size: 14px; color: #555; }
+.drop-placeholder small { font-size: 11px; }
+.drop-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.drop-loading {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.file-name-label {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── FORM FIELDS ── */
+.form-fields { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.form-field { display: flex; flex-direction: column; gap: 4px; position: relative; }
+.form-field label { font-size: 12px; font-weight: 600; color: #555; }
+.form-field input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-field input:focus { border-color: #111; }
+.char-count { font-size: 11px; color: #aaa; text-align: right; }
+
+/* ── ADD BTN ── */
+.add-btn {
+  width: 100%;
+  padding: 12px;
+  background: #111;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.add-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ── EMPTY STATE ── */
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #aaa;
+}
+
+/* ── SLIDE CARD ── */
+.slide-card { position: relative; }
+.slide-number {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #111;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 10px;
+}
+.slide-no-img {
+  width: 100%;
+  height: 120px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #aaa;
+  border-radius: 8px;
+}
+
+/* ── INLINE EDIT ── */
+.inline-edit {
+  width: 100%;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+.inline-edit:hover { border-color: #ddd; background: #fafafa; }
+.inline-edit:focus { border-color: #111; background: #fff; outline: none; }
+.inline-edit.sub { font-weight: 400; color: #666; font-size: 12px; }
+/* ── Pega esto al final de tu EditCarousel.css ── */
+
+/* BOTÓN GUARDAR en el header */
+.save-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #555;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.save-btn--pending {
+  background: #111;
+  color: #fff;
+  border-color: #111;
+  animation: pulse-save 2s infinite;
+}
+.save-btn--pending:hover {
+  background: #333;
+}
+
+@keyframes pulse-save {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,0,0,0.2); }
+  50%       { box-shadow: 0 0 0 5px rgba(0,0,0,0); }
+}
+
+/* BOTÓN GUARDAR flotante al pie */
+.save-footer {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.save-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 36px;
+  border-radius: 10px;
+  border: none;
+  background: #eee;
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.save-footer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.save-footer-btn--pending {
+  background: #111;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  animation: pulse-save 2s infinite;
+}
+
+.save-footer-btn--pending:hover {
+  background: #333;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse-save {
+  0%, 100% { box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25); }
+  50%       { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+}
+.order-buttons{
+  display:flex;
+  gap:8px;
+  margin-top:10px;
+}
+
+.move-btn{
+  flex:1;
+  padding:8px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  background:#f3f3f3;
+  transition:0.2s;
+}
+
+.move-btn:hover{
+  background:#e5e5e5;
+}
+
+.move-btn:disabled{
+  opacity:0.4;
+  cursor:not-allowed;
+}
+
+.back-btn {
+  background: linear-gradient(
+    135deg,
+    #ff3d8b,
+    #2547e0
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 999px;
+
+  cursor: pointer;
+}
+.saving-indicator {
+  font-size: 11px;
+  color: #999;
+  margin-top: 6px;
+  display: inline-block;
+}

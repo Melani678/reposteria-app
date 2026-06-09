@@ -1,0 +1,176 @@
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: linear-gradient(135deg, #ffdee9, #b5fffc);
+}
+
+.auth-card {
+  width: 380px;
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+
+  animation: fadeIn 0.5s ease;
+}
+
+/* HEADER */
+.auth-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.auth-header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.auth-header p {
+  font-size: 14px;
+  color: #777;
+}
+
+/* FORM */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* INPUTS */
+.auth-form input {
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+/* FILA DOBLE */
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+.row input {
+  flex: 1;
+}
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.password-wrapper input {
+  width: 100%;
+  padding-right: 45px;
+}
+.password-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #666;
+  font-size: 12px;
+}
+.password-strength {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.password-strength.débil {
+  color: #e53935;
+}
+
+.password-strength.media {
+  color: #fb8c00;
+}
+
+.password-strength.fuerte {
+  color: #43a047;
+}
+.toggle-password {
+  cursor: pointer;
+  color: #777;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-password:hover {
+  color: #ff6f91;
+}
+/* BOTÓN */
+.btn-auth {
+  margin-top: 10px;
+  padding: 12px;
+
+  background: #ff6f91;
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.btn-auth:hover {
+  background: #ff3d6e;
+}
+.captcha-box {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.captcha-code {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  background: #eee;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-refresh {
+  margin-top: 5px;
+  background: #ddd;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* SWITCH ABAJO (LO IMPORTANTE) */
+.auth-switch-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-switch-bottom span {
+  color: #ff3d6e;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ANIMACIÓN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

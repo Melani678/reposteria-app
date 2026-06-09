@@ -1,0 +1,19 @@
+.clientes-table {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border-collapse: collapse;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.clientes-table th,
+.clientes-table td {
+  padding: 15px;
+  text-align: center;
+}
+
+.clientes-table th {
+  background: #ff3d8b;
+  color: white;
+}

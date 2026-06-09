@@ -1,0 +1,79 @@
+.admin-card {
+  width: 250px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  position: relative;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+}
+
+.admin-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.admin-card .card-body {
+  padding: 12px;
+}
+.tipo-badge{
+  display:inline-block;
+  background:#ffe0e9;
+  padding:4px 8px;
+  border-radius:8px;
+  font-size:12px;
+  margin-bottom:8px;
+}
+/* BOTONES OCULTOS */
+.product-actions {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  opacity: 0;
+
+  transform: translateY(-10px);
+
+  transition: all 0.3s ease;
+}
+
+/* APARECEN EN HOVER */
+.admin-card:hover .product-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-edit-btn,
+.product-delete-btn {
+
+  border: none;
+
+  padding: 10px 15px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.product-edit-btn {
+  background: #2547e0;
+}
+
+.product-delete-btn {
+  background: #ff3d8b;
+}

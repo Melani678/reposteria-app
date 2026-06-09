@@ -1,0 +1,32 @@
+.cart-page {
+  padding: 30px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.qty {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-remove {
+  background: red;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+}

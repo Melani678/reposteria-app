@@ -1,0 +1,148 @@
+.detail-page {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  padding: 140px 50px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   IMAGEN
+========================= */
+
+.detail-image img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 25px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
+}
+
+.detail-image img:hover {
+  transform: scale(1.03);
+}
+
+/* =========================
+   INFO
+========================= */
+
+.detail-info {
+  flex: 1;
+  text-align: left;
+}
+
+/* BRAND TAG */
+.detail-brand {
+  display: inline-block;
+  background: rgba(255, 61, 139, 0.08);
+  border: 1px solid rgba(255, 61, 139, 0.2);
+  color: #ff80b5;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* TITULO */
+.detail-info h1 {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  color: #ff3d8b;
+}
+
+/* PRECIO */
+.detail-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2547e0;
+  margin-bottom: 20px;
+}
+
+/* SUBTITULOS */
+.detail-info h3 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: #1d2ead;
+}
+
+/* INPUTS */
+.detail-info input,
+.detail-info select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 200px;
+}
+
+/* BOTONES */
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn-carrito {
+  background: #ffb6c1;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.btn-wsp {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  position: absolute;
+  top: 100px;
+  left: 30px;
+}
+
+.back-button {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .detail-page {
+    flex-direction: column;
+    align-items: center;
+    padding: 120px 25px 25px;
+  }
+
+  .detail-image img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .detail-info {
+    text-align: center;
+  }
+
+  .detail-info h1 {
+    font-size: 2rem;
+  }
+
+  .detail-price {
+    font-size: 1.5rem;
+  }
+}

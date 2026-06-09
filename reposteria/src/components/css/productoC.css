@@ -1,0 +1,85 @@
+.card {
+  width: 250px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.card {
+  width: 250px;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+.card-body p {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  color: #666;
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  text-align: left;
+}
+.tipo {
+  font-size: 12px;
+  background: #ffe0e9;
+  padding: 4px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 5px 0;
+}
+.stock {
+  font-size: 14px !important;
+  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: #e8f5e9;
+  color: #2e7d32;
+
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  margin-top: 10px;
+}
+.acciones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-carrito {
+  background: #ffb6c1;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-wsp {
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}

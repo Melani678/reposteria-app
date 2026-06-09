@@ -1,0 +1,98 @@
+.home {
+  width: 100%;
+  
+  position: relative;
+}
+
+/* HERO */
+.home-hero {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+/* OVERLAY */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(0,0,0,0.35);
+  color: white;
+
+  text-align: center;
+  padding: 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero-overlay h1 span {
+  color: #ffb6c1;
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.btn-home {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+
+  background: #ff6f91;
+  color: white;
+
+  cursor: pointer;
+  font-size: 16px;
+
+  transition: 0.3s;
+}
+
+.btn-home:hover {
+  background: #ff3d6e;
+}
+
+/* INFO SECTION */
+.home-info {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 50px 20px;
+  flex-wrap: wrap;
+
+  background: #fff;
+}
+
+.info-card {
+  width: 250px;
+  padding: 20px;
+
+  border-radius: 15px;
+  background: #fff8fb;
+
+  text-align: center;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.info-card h3 {
+  margin-bottom: 10px;
+}
+
+.info-card p {
+  color: #555;
+}

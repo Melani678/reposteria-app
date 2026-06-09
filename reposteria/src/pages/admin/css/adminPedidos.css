@@ -1,0 +1,55 @@
+.admin-pedidos {
+  padding: 120px 7%;
+}
+
+.admin-pedidos h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.pedidos-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.pedidos-table th,
+.pedidos-table td {
+  padding: 15px;
+  text-align: center;
+}
+
+.pedidos-table th {
+  background: #ff3d8b;
+  color: white;
+}
+
+.pedidos-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.estado {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.estado.pendiente {
+  background: #ffeaa7;
+}
+
+.estado.entregado {
+  background: #55efc4;
+}
+
+.estado.en_preparacion {
+  background: #74b9ff;
+}
+
+.acciones select {
+  padding: 6px;
+  border-radius: 8px;
+}

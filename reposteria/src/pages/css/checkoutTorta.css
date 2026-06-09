@@ -1,0 +1,31 @@
+.checkout-torta {
+  max-width: 600px;
+  margin: 120px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn-whatsapp {
+  margin-top: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
