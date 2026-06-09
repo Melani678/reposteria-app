@@ -9,8 +9,11 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
-      'https://reposteria-app-up0k.onrender.com' // producción (CAMBIA ESTO)
+      'https://reposteria-app-up0k.onrender.com',
+      'http://localhost:5173' // para desarrollo
     ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
   });
   app.use(
