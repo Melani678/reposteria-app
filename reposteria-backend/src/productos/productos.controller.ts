@@ -17,23 +17,28 @@ import { UpdateProductoDto } from './dto/update-producto.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { storage } from '../cloudinary.config';
 
+
+
 @Controller('productos')
 export class ProductosController {
 
   constructor(
-    private readonly productosService: ProductosService,
+    private readonly productosService:
+      ProductosService,
   ) {}
 
   @Get()
   findAll() {
     return this.productosService.findAll();
   }
-
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.productosService.findOne(Number(id));
+  findOne(
+    @Param('id') id: string,
+  ){
+    return this.productosService.findOne(
+        Number(id),
+    );
   }
-
   @Post()
   @UseInterceptors(FileInterceptor('imagen', { storage }))
   create(
@@ -45,23 +50,31 @@ export class ProductosController {
       precio: Number(body.precio),
       stock: body.stock === '' ? null : Number(body.stock),
       activo: body.activo === 'true' || body.activo === true,
-      cantidad_pisos: body.cantidad_pisos ? Number(body.cantidad_pisos) : undefined,
-      cantidad_personas: body.cantidad_personas ? Number(body.cantidad_personas) : undefined,
+
+      cantidad_pisos: body.cantidad_pisos
+        ? Number(body.cantidad_pisos)
+        : undefined,
+
+      cantidad_personas: body.cantidad_personas
+        ? Number(body.cantidad_personas)
+        : undefined,
+
       permite_personalizacion_imagen:
         body.permite_personalizacion_imagen === 'true' ||
         body.permite_personalizacion_imagen === true,
+
       permite_color_crema:
         body.permite_color_crema === 'true' ||
         body.permite_color_crema === true,
     };
 
     if (file) {
-      createProductoDto.imagen = file.path;
-    }
+  console.log('FILE CLOUDINARY:', JSON.stringify(file));
+    createProductoDto.imagen = file.path;
+  }
 
     return this.productosService.create(createProductoDto);
   }
-
   @Patch(':id')
   @UseInterceptors(FileInterceptor('imagen', { storage }))
   update(
@@ -72,11 +85,22 @@ export class ProductosController {
     const updateProductoDto: UpdateProductoDto = {
       ...body,
       precio: body.precio ? Number(body.precio) : undefined,
-      stock: body.stock === '' ? null : body.stock ? Number(body.stock) : undefined,
-      cantidad_pisos: body.cantidad_pisos ? Number(body.cantidad_pisos) : undefined,
-      cantidad_personas: body.cantidad_personas ? Number(body.cantidad_personas) : undefined,
-      permite_personalizacion_imagen: body.permite_personalizacion_imagen === 'true',
-      permite_color_crema: body.permite_color_crema === 'true',
+      stock:
+        body.stock === '' ? null : body.stock ? Number(body.stock) : undefined,
+
+      cantidad_pisos: body.cantidad_pisos
+        ? Number(body.cantidad_pisos)
+        : undefined,
+
+      cantidad_personas: body.cantidad_personas
+        ? Number(body.cantidad_personas)
+        : undefined,
+
+      permite_personalizacion_imagen:
+        body.permite_personalizacion_imagen === 'true',
+
+      permite_color_crema:
+        body.permite_color_crema === 'true',
     };
 
     if (file) {
@@ -85,9 +109,14 @@ export class ProductosController {
 
     return this.productosService.update(Number(id), updateProductoDto);
   }
-
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.productosService.remove(Number(id));
+  remove(
+    @Param('id') id: string,
+  ) {
+
+    return this.productosService.remove(
+      Number(id),
+    );
+
   }
 }
