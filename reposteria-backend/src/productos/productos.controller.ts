@@ -15,20 +15,10 @@ import { CreateProductoDto } from './dto/create-producto.dto';
 import { UpdateProductoDto } from './dto/update-producto.dto';
 
 import { FileInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
-import { extname } from 'path';
+import { storage } from '../cloudinary.config';
 
-const storage = diskStorage({
-  destination: './uploads',
-  filename: (req, file, callback) => {
-    const uniqueSuffix =
-      Date.now() + '-' + Math.round(Math.random() * 1e9);
 
-    const ext = extname(file.originalname);
 
-    callback(null, `${file.fieldname}-${uniqueSuffix}${ext}`);
-  },
-});
 @Controller('productos')
 export class ProductosController {
 
@@ -53,7 +43,7 @@ export class ProductosController {
   @UseInterceptors(FileInterceptor('imagen', { storage }))
   create(
     @Body() body: any,
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: any,
   ) {
     const createProductoDto: CreateProductoDto = {
       ...body,
@@ -89,7 +79,7 @@ export class ProductosController {
   update(
     @Param('id') id: string,
     @Body() body: any,
-    @UploadedFile() file: Express.Multer.File,
+    @UploadedFile() file: any,
   ) {
     const updateProductoDto: UpdateProductoDto = {
       ...body,
