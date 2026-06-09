@@ -8,7 +8,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors({
-    origin: true,
+    origin: [
+      'https://reposteria-app-0c4a.onrender.com' // producción (CAMBIA ESTO)
+    ],
     credentials: true,
   });
   app.use(
