@@ -15,7 +15,7 @@ function Sabores() {
   const [editando, setEditando] = useState(null);
   const [editValue, setEditValue] = useState("");
 
-  // 📥 cargar desde backend
+  //  cargar desde backend
   useEffect(() => {
     cargarSabores();
   }, []);
@@ -29,8 +29,9 @@ function Sabores() {
     }
   };
 
-  // ➕ crear
+  //  crear
   const agregarSabor = async () => {
+    console.log("click agregar", nuevo);
     if (!nuevo.trim()) return;
 
     try {
@@ -42,7 +43,7 @@ function Sabores() {
     }
   };
 
-  // ✏️ editar
+  //  editar
   const startEdit = (sabor) => {
     setEditando(sabor.id_sabor_relleno);
     setEditValue(sabor.nombre);
@@ -59,7 +60,7 @@ function Sabores() {
     }
   };
 
-  // ❌ eliminar
+  //  eliminar
   const eliminar = async (id) => {
     const confirm = window.confirm("¿Eliminar este sabor?");
     if (!confirm) return;
