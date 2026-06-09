@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import "./css/carousel.css";
 import { getCarousel } from "../services/carouselService";
-import { API_URL } from "../services/api";
+
 
 function CarouselSlider() {
 

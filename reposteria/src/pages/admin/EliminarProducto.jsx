@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { API_URL } from "../../services/api";
+
 import "./css/eliminarP.css";
 
 import {

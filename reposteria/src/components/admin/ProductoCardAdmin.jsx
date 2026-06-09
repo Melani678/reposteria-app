@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../../services/api";
+
 import "./prodCA.css";
 
 
@@ -29,7 +29,7 @@ function ProductoCardAdmin({ producto }) {
       
 
       <img
-        src={`${API_URL}${producto.imagen}`}
+        src={producto.imagen}
         alt={producto.nombre}
       />
 

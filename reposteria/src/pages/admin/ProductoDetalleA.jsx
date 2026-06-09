@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./css/productoDA.css";
-import { API_URL } from "../../services/api";
+
 import { getProductoById } from "../../services/productosService";
 
 

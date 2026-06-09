@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "./css/productoD.css";
 
 import { getProductoById } from "../services/productosService";
-import { API_URL } from "../services/api";
+
 function ProductoDetalle() {
   const navigate = useNavigate();
   const { id } = useParams();

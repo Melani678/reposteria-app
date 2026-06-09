@@ -6,7 +6,7 @@ import { useCart } from "../context/CartContext";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
 import "./css/productos.css";
-import { API_URL } from "../services/api";
+
 function Productos() {
 
   const [filtro, setFiltro] = useState("TODOS");

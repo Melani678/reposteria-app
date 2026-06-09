@@ -1,6 +1,6 @@
 import { useCart } from "../context/CartContext";
 import "./css/carrito.css";
-import { API_URL } from "../services/api";
+
 function CartItem({ item }) {
 
   const { removeFromCart, updateQuantity } = useCart();
