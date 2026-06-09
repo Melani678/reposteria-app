@@ -45,6 +45,11 @@ import { Compra } from './compras/entities/compra.entity';
         password: config.get('DB_PASSWORD'),
         database: config.get('DB_NAME'),
 
+        ssl: {
+          rejectUnauthorized: false,
+        },
+
+
         entities: [
           Usuario,
           Cliente,
@@ -61,7 +66,7 @@ import { Compra } from './compras/entities/compra.entity';
           DetalleCompra,
         ],
 
-        synchronize: false,
+        synchronize: true,
       }),
     }),
 
