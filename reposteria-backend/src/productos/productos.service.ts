@@ -179,92 +179,81 @@ export class ProductosService {
     id: number,
     updateProductoDto: UpdateProductoDto,
   ) {
+    try {
 
-    const {
-      cantidad_pisos,
-      cantidad_personas,
-      forma_torta,
-      permite_personalizacion_imagen,
+      const {
+        cantidad_pisos,
+        cantidad_personas,
+        forma_torta,
+        permite_personalizacion_imagen,
+        permite_color_crema,
+        sabor_galleta,
+        sabor_queque,
+        ...productoData
+      } = updateProductoDto;
 
-      permite_color_crema,
-
-      sabor_galleta,
-
-      sabor_queque,
-
-      ...productoData
-
-    } = updateProductoDto;
-
-    await this.productoRepository.update(
-      { id_producto: id },
-      productoData,
-    );
-
-    const producto =
-      await this.productoRepository.findOne({
-        where: {
-          id_producto: id,
-        },
-      });
-
-    if (!producto) {
-      throw new BadRequestException(
-        'Producto no encontrado',
+      await this.productoRepository.update(
+        { id_producto: id },
+        productoData,
       );
+
+      const producto =
+        await this.productoRepository.findOne({
+          where: { id_producto: id },
+        });
+
+      if (!producto) {
+        throw new BadRequestException('Producto no encontrado');
+      }
+
+      switch (producto.tipo) {
+
+        case 'TORTA':
+          await this.tortaRepository.update(
+            { id_producto: id },
+            {
+              cantidad_pisos,
+              cantidad_personas,
+              forma_torta,
+              permite_personalizacion_imagen,
+            },
+          );
+          break;
+
+        case 'CUPCAKE':
+          await this.cupcakeRepository.update(
+            { id_producto: id },
+            {
+              permite_color_crema,
+            },
+          );
+          break;
+
+        case 'GALLETA':
+          await this.galletaRepository.update(
+            { id_producto: id },
+            {
+              sabor: sabor_galleta,
+            },
+          );
+          break;
+
+        case 'QUEQUE':
+          await this.quequeRepository.update(
+            { id_producto: id },
+            {
+              sabor: sabor_queque,
+            },
+          );
+          break;
+      }
+
+      return this.findOne(id);
+
+    } catch (error) {
+      console.log('🔥 ERROR UPDATE PRODUCTO:', error);
+      throw new BadRequestException('Error actualizando producto');
     }
-
-    switch (producto.tipo) {
-
-      case 'TORTA':
-
-        await this.tortaRepository.update(
-          { id_producto: id },
-          {
-            cantidad_pisos,
-            cantidad_personas,
-            forma_torta,
-            permite_personalizacion_imagen,
-          },
-        );
-
-        break;
-
-      case 'CUPCAKE':
-
-        await this.cupcakeRepository.update(
-          { id_producto: id },
-          {
-            permite_color_crema,
-          },
-        );
-
-        break;
-
-      case 'GALLETA':
-
-        await this.galletaRepository.update(
-          { id_producto: id },
-          {
-            sabor: sabor_galleta,
-          },
-        );
-
-        break;
-
-      case 'QUEQUE':
-
-        await this.quequeRepository.update(
-          { id_producto: id },
-          {
-            sabor: sabor_queque,
-          },
-        );
-
-        break;
-    }
-
-    return this.findOne(id);
   }
   async remove(id: number) {
 
