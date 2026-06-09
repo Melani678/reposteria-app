@@ -66,7 +66,7 @@ import { Compra } from './compras/entities/compra.entity';
           DetalleCompra,
         ],
 
-        synchronize: true,
+        synchronize: false,
       }),
     }),
 
