@@ -83,7 +83,10 @@ function Sabores() {
         <input
           value={nuevo}
           placeholder="Nuevo sabor"
-          onChange={(e) => setNuevo(e.target.value)}
+          onChange={(e) => {
+            console.log("escribiendo:", e.target.value);
+            setNuevo(e.target.value);
+          }}
         />
         <button onClick={(e) => {
           console.log("click directo", e);
