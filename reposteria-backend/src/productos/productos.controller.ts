@@ -69,8 +69,9 @@ export class ProductosController {
     };
 
     if (file) {
-      createProductoDto.imagen = `/uploads/${file.filename}`;
-    }
+  console.log('FILE CLOUDINARY:', JSON.stringify(file));
+    createProductoDto.imagen = file.path;
+  }
 
     return this.productosService.create(createProductoDto);
   }
