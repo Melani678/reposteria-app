@@ -28,10 +28,9 @@ function ProductoCardAdmin({ producto }) {
     >
       
 
-      <img
-        src={producto.imagen}
-        alt={producto.nombre}
-      />
+      {producto.imagen && (
+        <img src={producto.imagen} alt={producto.nombre} />
+      )}
 
       <div className="card-body">
 
