@@ -8,7 +8,7 @@ function CartItem({ item }) {
   return (
     <div className="cart-item">
 
-      <img src={producto.imagen} />
+      <img src={item.image} />
       
       <div>
         <h3>{item.name}</h3>

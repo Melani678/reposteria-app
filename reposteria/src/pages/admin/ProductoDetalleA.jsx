@@ -52,7 +52,7 @@ function ProductoDetalleA() {
 
       {/* IMAGEN */}
       <div className="detail-image">
-        <img src={producto.imagen} />
+        <img src={product.imagen} />
       </div>
 
       {/* INFO */}

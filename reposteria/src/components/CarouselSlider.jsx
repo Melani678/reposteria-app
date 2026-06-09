@@ -52,7 +52,7 @@ function CarouselSlider() {
           <div key={s.id} className="carousel-slide">
 
             <img
-              src={producto.imagen}
+              src={s.imagen}
               alt={s.nombre}
               className="carousel-img"
             />

@@ -88,7 +88,7 @@ function EditarProducto() {
         });
 
         if (producto.imagen) {
-          setPreview(`${API_URL}${producto.imagen}`);
+          setPreview(producto.imagen);
         }
 
       } catch (error) {

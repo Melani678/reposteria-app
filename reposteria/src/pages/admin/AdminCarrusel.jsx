@@ -163,7 +163,7 @@ function AdminCarrusel() {
             <div key={s.id} className="slide-card">
 
               <img
-                src={`${API_URL}${s.imagen}`}
+                src={s.imagen}
                 alt="slide"
               />
 
