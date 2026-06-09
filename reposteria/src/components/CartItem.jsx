@@ -8,7 +8,7 @@ function CartItem({ item }) {
   return (
     <div className="cart-item">
 
-      <img src={`${API_URL}${item.image}`}  />
+      <img src={producto.imagen} />
       
       <div>
         <h3>{item.name}</h3>

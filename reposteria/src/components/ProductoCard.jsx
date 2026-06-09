@@ -25,7 +25,7 @@ function ProductoCard({ producto }) {
   return (
      <div className="card" onClick={() => navigate(`/producto/${producto.id_producto}`)}>
 
-      <img src={`${API_URL}${producto.imagen}`} alt={producto.nombre} />
+      <img src={producto.imagen} alt={producto.nombre} />
 
       <div className="card-body">
         <h3>{producto.nombre}</h3>

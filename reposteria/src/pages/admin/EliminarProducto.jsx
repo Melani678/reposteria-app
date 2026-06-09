@@ -96,7 +96,7 @@ function EliminarProducto() {
               {producto.imagen ? (
 
                 <img
-                  src={`${API_URL}${producto.imagen}`}
+                  src={producto.imagen}
                   alt={producto.nombre}
                 />
 

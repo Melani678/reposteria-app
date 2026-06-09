@@ -51,7 +51,7 @@ function ProductoDetalle() {
 
       {/* IMAGEN */}
       <div className="detail-image">
-        <img src={`${API_URL}${product.imagen}`} alt={product.nombre} />
+        <img src={producto.imagen} alt={product.nombre} />
       </div>
 
       {/* INFO */}
