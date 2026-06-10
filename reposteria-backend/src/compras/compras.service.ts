@@ -58,7 +58,9 @@ export class ComprasService {
     });
 
     const compraGuardada = await this.compraRepo.save(nuevaCompra);
-
+    // SUMAR PUNTOS (1 punto por cada Bs. gastado, ajusta como quieras)
+    clienteDB.puntos_compras = (clienteDB.puntos_compras ?? 0) + Math.floor(total / 10);
+    await this.clienteRepo.save(clienteDB);
     console.log('COMPRA GUARDADA:', compraGuardada);
 
     // =========================
@@ -98,6 +100,7 @@ export class ComprasService {
             precio_unitario: Number(item.price),
             subtotal: Number(item.price) * Number(item.quantity),
         });
+        
         }
 
     return compraGuardada;
