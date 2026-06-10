@@ -84,15 +84,9 @@ export class ProductosController {
   ) {
     const updateProductoDto: UpdateProductoDto = {
       ...body,
-
       precio: body.precio ? Number(body.precio) : undefined,
-
       stock:
-        body.stock === '' || body.stock === 'null'
-          ? null
-          : body.stock
-            ? Number(body.stock)
-            : undefined,
+        body.stock === '' ? null : body.stock ? Number(body.stock) : undefined,
 
       cantidad_pisos: body.cantidad_pisos
         ? Number(body.cantidad_pisos)
@@ -103,12 +97,10 @@ export class ProductosController {
         : undefined,
 
       permite_personalizacion_imagen:
-        body.permite_personalizacion_imagen === 'true' ||
-        body.permite_personalizacion_imagen === true,
+        body.permite_personalizacion_imagen === 'true',
 
       permite_color_crema:
-        body.permite_color_crema === 'true' ||
-        body.permite_color_crema === true,
+        body.permite_color_crema === 'true',
     };
 
     if (file) {

@@ -179,81 +179,92 @@ export class ProductosService {
     id: number,
     updateProductoDto: UpdateProductoDto,
   ) {
-    try {
 
-      const {
-        cantidad_pisos,
-        cantidad_personas,
-        forma_torta,
-        permite_personalizacion_imagen,
-        permite_color_crema,
-        sabor_galleta,
-        sabor_queque,
-        ...productoData
-      } = updateProductoDto;
+    const {
+      cantidad_pisos,
+      cantidad_personas,
+      forma_torta,
+      permite_personalizacion_imagen,
 
-      await this.productoRepository.update(
-        { id_producto: id },
-        productoData,
+      permite_color_crema,
+
+      sabor_galleta,
+
+      sabor_queque,
+
+      ...productoData
+
+    } = updateProductoDto;
+
+    await this.productoRepository.update(
+      { id_producto: id },
+      productoData,
+    );
+
+    const producto =
+      await this.productoRepository.findOne({
+        where: {
+          id_producto: id,
+        },
+      });
+
+    if (!producto) {
+      throw new BadRequestException(
+        'Producto no encontrado',
       );
-
-      const producto =
-        await this.productoRepository.findOne({
-          where: { id_producto: id },
-        });
-
-      if (!producto) {
-        throw new BadRequestException('Producto no encontrado');
-      }
-
-      switch (producto.tipo) {
-
-        case 'TORTA':
-          await this.tortaRepository.update(
-            { id_producto: id },
-            {
-              cantidad_pisos,
-              cantidad_personas,
-              forma_torta,
-              permite_personalizacion_imagen,
-            },
-          );
-          break;
-
-        case 'CUPCAKE':
-          await this.cupcakeRepository.update(
-            { id_producto: id },
-            {
-              permite_color_crema,
-            },
-          );
-          break;
-
-        case 'GALLETA':
-          await this.galletaRepository.update(
-            { id_producto: id },
-            {
-              sabor: sabor_galleta,
-            },
-          );
-          break;
-
-        case 'QUEQUE':
-          await this.quequeRepository.update(
-            { id_producto: id },
-            {
-              sabor: sabor_queque,
-            },
-          );
-          break;
-      }
-
-      return this.findOne(id);
-
-    } catch (error) {
-      console.log('🔥 ERROR UPDATE PRODUCTO:', error);
-      throw new BadRequestException('Error actualizando producto');
     }
+
+    switch (producto.tipo) {
+
+      case 'TORTA':
+
+        await this.tortaRepository.update(
+          { id_producto: id },
+          {
+            cantidad_pisos,
+            cantidad_personas,
+            forma_torta,
+            permite_personalizacion_imagen,
+          },
+        );
+
+        break;
+
+      case 'CUPCAKE':
+
+        await this.cupcakeRepository.update(
+          { id_producto: id },
+          {
+            permite_color_crema,
+          },
+        );
+
+        break;
+
+      case 'GALLETA':
+
+        await this.galletaRepository.update(
+          { id_producto: id },
+          {
+            sabor: sabor_galleta,
+          },
+        );
+
+        break;
+
+      case 'QUEQUE':
+
+        await this.quequeRepository.update(
+          { id_producto: id },
+          {
+            sabor: sabor_queque,
+          },
+        );
+
+        break;
+    }
+
+    return this.findOne(id);
   }
   async remove(id: number) {
 
@@ -293,6 +304,7 @@ export class ProductosService {
       // =========================
       //  BORRAR IMAGEN FÍSICA
       // =========================
+      // BORRAR IMAGEN FÍSICA
       if (producto.imagen) {
         try {
           const filePath = path.join(
@@ -301,22 +313,15 @@ export class ProductosService {
               ? producto.imagen.slice(1)
               : producto.imagen,
           );
-
           if (fs.existsSync(filePath)) {
             fs.unlinkSync(filePath);
           }
-
         } catch (error) {
-          if (error instanceof Error) {
-            console.log('Error eliminando imagen:', error.message);
-          } else {
-            console.log('Error eliminando imagen:', error);
-          }
-      }
+          console.log('Error eliminando imagen:', error);
+        }
+      } // ← cierra el if de imagen aquí
 
-      // =========================
-      //  BORRAR PRODUCTO
-      // =========================
+      // BORRAR PRODUCTO - fuera del if
       await this.productoRepository.delete({
         id_producto: id,
       });
@@ -324,6 +329,5 @@ export class ProductosService {
       return {
         message: 'Producto eliminado correctamente',
       };
-    }
   }
 }
