@@ -40,7 +40,7 @@ function Reportes() {
 
         <a
           className="pdf-btn"
-          href="http://localhost:3000/reportes/pdf"
+          href="https://reposteria-backend.onrender.com/reportes/pdf"
           target="_blank"
         >
            Descargar PDF
