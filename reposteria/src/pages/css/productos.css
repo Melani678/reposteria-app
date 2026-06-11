@@ -1,27 +1,25 @@
 .productos-layout {
-  margin-top: 50px;
-  padding: 20px;
-  text-align: center;
   display: flex;
   gap: 20px;
   padding: 20px;
   align-items: flex-start;
+  margin-top: 50px;
 }
 
 /* IZQUIERDA */
 .productos-section {
-  flex: 1;
+  flex: 2;
 }
 
 /* DERECHA (CARRITO FIJO VISUAL) */
 .cart-sidebar {
   flex: 1;
   position: sticky;
-  top: 90px;
+  top: 20px;
   height: fit-content;
 
   background: #fff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 15px;
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -37,30 +35,4 @@
     position: relative;
     top: 0;
   }
-}
-
-
-.filtros {
-  margin: 20px 0;
-}
-
-.filtros button {
-  margin: 5px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background: #eee;
-}
-
-.filtros .active {
-  background: #ff6f91;
-  color: white;
-}
-
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
 }
