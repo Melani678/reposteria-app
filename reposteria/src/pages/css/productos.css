@@ -10,7 +10,7 @@
 
 /* IZQUIERDA */
 .productos-section {
-  flex: 2;
+  flex: 1;
 }
 
 /* DERECHA (CARRITO FIJO VISUAL) */
