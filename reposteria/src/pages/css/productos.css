@@ -2,7 +2,8 @@
   margin-top: 50px;
   padding: 20px;
   text-align: center;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 420px;
   gap: 20px;
   padding: 20px;
   align-items: flex-start;
@@ -19,12 +20,15 @@
   position: sticky;
   top: 90px;
   height: fit-content;
-  width: 30px;
+
   background: #fff;
   padding: 10px;
   border-radius: 15px;
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 /* RESPONSIVE */
