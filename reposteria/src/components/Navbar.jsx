@@ -92,7 +92,7 @@ function Navbar() {
                         {usuario && (
                             <>
                                 <li className="user-info">
-                                     {usuario?.correo}
+                                     {usuario?.nombre}
                                 </li>
 
                                 <li>
