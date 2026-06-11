@@ -35,9 +35,8 @@ export class ProductosService {
     private postreRepository: Repository<Postre>,
   ) {}
   async findAll() {
-
     return await this.productoRepository.find({
-
+      where: { activo: true },
       relations: {
         torta: true,
         cupcake: true,
@@ -45,9 +44,7 @@ export class ProductosService {
         queque: true,
         postre: true,
       },
-
     });
-
   }
   async findOne(id: number) {
 
@@ -267,67 +264,19 @@ export class ProductosService {
     return this.findOne(id);
   }
   async remove(id: number) {
+    const producto = await this.findOne(id);
 
-      // obtener producto con relaciones (usas findOne tuyo)
-      const producto = await this.findOne(id);
+    if (!producto) {
+      throw new BadRequestException('Producto no encontrado');
+    }
 
-      if (!producto) {
-        throw new BadRequestException('Producto no encontrado');
-      }
+    await this.productoRepository.update(
+      { id_producto: id },
+      { activo: false },
+    );
 
-      // =========================
-      //  BORRAR RELACIONES
-      // =========================
-      switch (producto.tipo) {
-
-        case 'TORTA':
-          await this.tortaRepository.delete({ id_producto: id });
-          break;
-
-        case 'CUPCAKE':
-          await this.cupcakeRepository.delete({ id_producto: id });
-          break;
-
-        case 'GALLETA':
-          await this.galletaRepository.delete({ id_producto: id });
-          break;
-
-        case 'QUEQUE':
-          await this.quequeRepository.delete({ id_producto: id });
-          break;
-
-        case 'POSTRE':
-          await this.postreRepository.delete({ id_producto: id });
-          break;
-      }
-
-      // =========================
-      //  BORRAR IMAGEN FÍSICA
-      // =========================
-      // BORRAR IMAGEN FÍSICA
-      if (producto.imagen) {
-        try {
-          const filePath = path.join(
-            process.cwd(),
-            producto.imagen.startsWith('/')
-              ? producto.imagen.slice(1)
-              : producto.imagen,
-          );
-          if (fs.existsSync(filePath)) {
-            fs.unlinkSync(filePath);
-          }
-        } catch (error) {
-          console.log('Error eliminando imagen:', error);
-        }
-      } // ← cierra el if de imagen aquí
-
-      // BORRAR PRODUCTO - fuera del if
-      await this.productoRepository.delete({
-        id_producto: id,
-      });
-
-      return {
-        message: 'Producto eliminado correctamente',
-      };
+    return {
+      message: 'Producto desactivado correctamente',
+    };
   }
 }

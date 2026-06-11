@@ -14,7 +14,9 @@ export class SaboresService {
   ) {}
 
   async findAll() {
-    return await this.saborRepository.find();
+    return await this.saborRepository.find({
+      where: { activo: true },
+    });
   }
 
   async create(dto: CreateSaborDto) {
@@ -55,12 +57,13 @@ export class SaboresService {
       throw new NotFoundException('Sabor no encontrado');
     }
 
-    await this.saborRepository.delete({
-      id_sabor_relleno: id,
-    });
+    await this.saborRepository.update(
+      { id_sabor_relleno: id },
+      { activo: false },
+    );
 
     return {
-      message: 'Sabor eliminado correctamente',
+      message: 'Sabor desactivado correctamente',
     };
   }
 }

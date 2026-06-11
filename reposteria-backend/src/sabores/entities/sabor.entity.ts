@@ -8,4 +8,6 @@ export class SaborRelleno {
 
   @Column({ type: 'varchar', length: 50 })
   nombre!: string;
+  @Column({ default: true })
+  activo!: boolean;
 }
