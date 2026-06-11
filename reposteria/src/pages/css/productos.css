@@ -1,25 +1,30 @@
 .productos-layout {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
   display: flex;
-  gap: 30px;
+  gap: 20px;
+  padding: 20px;
   align-items: flex-start;
 }
 
+/* IZQUIERDA */
 .productos-section {
   flex: 1;
 }
 
+/* DERECHA (CARRITO FIJO VISUAL) */
 .cart-sidebar {
-  width: 350px;
-  min-width: 350px;
-
+  flex: 1;
   position: sticky;
   top: 90px;
+  height: fit-content;
 
-  background: white;
-  padding: 20px;
+  background: #fff;
+  padding: 10px;
   border-radius: 15px;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 /* RESPONSIVE */
@@ -54,7 +59,8 @@
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 20px;
+  justify-content: center;
 }
