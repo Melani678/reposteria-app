@@ -4,7 +4,7 @@
   text-align: center;
   display: flex;
   gap: 20px;
-  padding: 20px 40px;
+  padding: 20px;
   align-items: flex-start;
 }
 
@@ -15,11 +15,11 @@
 
 /* DERECHA (CARRITO FIJO VISUAL) */
 .cart-sidebar {
-  flex: 0 0 350px;
+  flex: 1;
   position: sticky;
   top: 90px;
   height: fit-content;
-  
+
   background: #fff;
   padding: 20px;
   border-radius: 15px;
