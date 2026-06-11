@@ -1,34 +1,29 @@
 .productos-layout {
   margin-top: 50px;
   padding: 20px;
-  text-align: center;
   display: flex;
   gap: 20px;
-  padding: 20px;
   align-items: flex-start;
   overflow: hidden;
 }
 
-/* IZQUIERDA */
 .productos-section {
-  flex: 1;
+  flex: 3;
+  min-width: 0;
 }
 
-/* DERECHA (CARRITO FIJO VISUAL) */
 .cart-sidebar {
-  flex: 1;
+  flex: 2;
   position: sticky;
   top: 90px;
   height: fit-content;
-
   background: #fff;
-  padding: 10px;
+  padding: 20px;
   border-radius: 15px;
-
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  min-width: 280px;
 }
 
-/* RESPONSIVE */
 @media (max-width: 900px) {
   .productos-layout {
     flex-direction: column;
@@ -39,7 +34,6 @@
     top: 0;
   }
 }
-
 
 .filtros {
   margin: 20px 0;
@@ -61,7 +55,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* exactamente 2 columnas */
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   justify-items: center;
 }
