@@ -10,7 +10,7 @@
 
 /* IZQUIERDA */
 .productos-section {
-  flex: 2;
+  flex: 0 0 400px;
 }
 
 /* DERECHA (CARRITO FIJO VISUAL) */
@@ -21,7 +21,7 @@
   height: fit-content;
 
   background: #fff;
-  padding: 50px;
+  padding: 10px;
   border-radius: 15px;
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
