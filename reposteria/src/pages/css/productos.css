@@ -10,12 +10,12 @@
 
 /* IZQUIERDA */
 .productos-section {
-  flex: 0 0 400px;
+  flex: 2;
 }
 
 /* DERECHA (CARRITO FIJO VISUAL) */
 .cart-sidebar {
-  flex: 1;
+  flex: 0 0 400px;
   position: sticky;
   top: 90px;
   height: fit-content;
