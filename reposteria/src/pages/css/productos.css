@@ -15,11 +15,11 @@
 
 /* DERECHA (CARRITO FIJO VISUAL) */
 .cart-sidebar {
-  flex: 0 0 400px;
+  flex: 1;
   position: sticky;
   top: 90px;
   height: fit-content;
-
+  width: 30px;
   background: #fff;
   padding: 10px;
   border-radius: 15px;
