@@ -15,6 +15,20 @@
   height: 80px;
   object-fit: cover;
   border-radius: 10px;
+  flex-shrink: 0; /* la imagen nunca se encoge */
+}
+
+.cart-item-info {
+  flex: 1;
+  min-width: 0; /* clave: permite que el texto haga wrap en vez de desbordar */
+}
+
+.cart-item-info h3,
+.cart-item-info p {
+  margin: 0 0 5px 0;
+  color: #000;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .qty {
@@ -23,10 +37,21 @@
   align-items: center;
 }
 
+.qty button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: #eee;
+  cursor: pointer;
+}
+
 .btn-remove {
   background: red;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 5px 10px;
+  border-radius: 6px;
   margin-top: 10px;
+  cursor: pointer;
 }

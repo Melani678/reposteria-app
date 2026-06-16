@@ -8,9 +8,9 @@ function CartItem({ item }) {
   return (
     <div className="cart-item">
 
-      <img src={item.image} />
+      <img src={item.image} alt={item.name} />
       
-      <div>
+      <div className="cart-item-info">
         <h3>{item.name}</h3>
         <p>Bs. {item.price}</p>
 
