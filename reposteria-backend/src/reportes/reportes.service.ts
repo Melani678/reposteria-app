@@ -19,8 +19,12 @@ export class ReportesService {
   ) {}
 
   async getResumen() {
-    const productos = await this.productoRepo.count();
-    const clientes = await this.clienteRepo.count();
+    const productos = await this.productoRepo.count({ where: { activo: true } });
+    const clientes = await this.clienteRepo
+      .createQueryBuilder('c')
+      .innerJoin('c.usuario', 'u')
+      .where('u.rol = :rol', { rol: 'cliente' })
+      .getCount();
     const pedidos = await this.compraRepo.count();
 
     const ventas = await this.compraRepo
